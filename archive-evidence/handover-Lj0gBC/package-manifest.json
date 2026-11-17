@@ -1,0 +1,25 @@
+{
+  "fileName": "freedoom-phase1-pilot-win64.zip",
+  "bytes": 25033364,
+  "sha256": "bdb6c948d4f976b4984c847ac1f353747809cf1ccedde67d58f0f2389e006b5b",
+  "platform": "Windows x64",
+  "freedoomVersion": "0.13.0",
+  "crispyDoomVersion": "7.2.0",
+  "sources": [
+    {
+      "file": "freedoom-0.13.0.zip",
+      "url": "https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip",
+      "sha256": "3f9b264f3e3ce503b4fb7f6bdcb1f419d93c7b546f4df3e874dd878db9688f59"
+    },
+    {
+      "file": "crispy-doom-7.2.0-win64.zip",
+      "url": "https://github.com/fabiangreffrath/crispy-doom/releases/download/crispy-doom-7.2/crispy-doom-7.2.0-win64.zip",
+      "sha256": "c04feca63c00fd4c381c53cce8444a2bb520020be38368ce80da60484c94f2ab"
+    },
+    {
+      "file": "crispy-doom-7.2-source.tar.gz",
+      "url": "https://api.github.com/repos/fabiangreffrath/crispy-doom/tarball/crispy-doom-7.2",
+      "sha256": "983c685d727806377a23cad8229266b2c1e29a3ca561c702e709f6906c865bc0"
+    }
+  ]
+}

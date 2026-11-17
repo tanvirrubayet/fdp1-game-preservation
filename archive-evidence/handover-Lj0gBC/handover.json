@@ -1,0 +1,131 @@
+{
+  "startedAt": "2026-11-17T14:30:36.551Z",
+  "chainId": 11155111,
+  "contract": "0x5DfF8B39c7e37787553425979bE6b9F6b9441ecc",
+  "walletA": "0x4e4204bb27B76e9bfcC91f49536B72fD0b9961A3",
+  "walletB": "0x485f4Cff16cc001df068641FE91c81e6A741a53a",
+  "steps": [
+    {
+      "step": "primary started",
+      "pid": 29840,
+      "origin": "http://127.0.0.1:51584",
+      "directory": "archive-data/primary",
+      "rpc": "https://ethereum-sepolia-rpc.publicnode.com",
+      "sha256": "bdb6c948d4f976b4984c847ac1f353747809cf1ccedde67d58f0f2389e006b5b"
+    },
+    {
+      "step": "backup started",
+      "pid": 1064,
+      "origin": "http://127.0.0.1:59549",
+      "directory": "archive-data/backup",
+      "rpc": "https://ethereum-sepolia-public.nodies.app",
+      "sha256": "bdb6c948d4f976b4984c847ac1f353747809cf1ccedde67d58f0f2389e006b5b"
+    },
+    {
+      "step": "Observed initial Sepolia balances",
+      "walletA": "0",
+      "walletB": "1",
+      "totalSupply": "1"
+    },
+    {
+      "step": "Test gas top-up for 0x485f4Cff16cc001df068641FE91c81e6A741a53a submitted",
+      "hash": "0x7e4acba5ec00f3d67ba45eac39a31a6bfb8956e6f7294a6df0ab99d50fc77602"
+    },
+    {
+      "step": "Test gas top-up for 0x485f4Cff16cc001df068641FE91c81e6A741a53a confirmed",
+      "hash": "0x7e4acba5ec00f3d67ba45eac39a31a6bfb8956e6f7294a6df0ab99d50fc77602",
+      "blockNumber": "12155003"
+    },
+    {
+      "step": "Setup transfer from B to A submitted",
+      "hash": "0x77d7f7e12b84170c933ec914208c32bd331fce023f50e0ac1954bf4e7def9b08"
+    },
+    {
+      "step": "Setup transfer from B to A confirmed",
+      "hash": "0x77d7f7e12b84170c933ec914208c32bd331fce023f50e0ac1954bf4e7def9b08",
+      "blockNumber": "12155005"
+    },
+    {
+      "step": "Primary served wallet A",
+      "httpStatus": 200,
+      "ownershipBlock": "12155006",
+      "balance": "1",
+      "bytes": 25033364,
+      "sha256": "bdb6c948d4f976b4984c847ac1f353747809cf1ccedde67d58f0f2389e006b5b"
+    },
+    {
+      "step": "Primary rejected replay of its used challenge",
+      "httpStatus": 401,
+      "error": "Unknown, expired or used wallet challenge."
+    },
+    {
+      "step": "Backup rejected a primary challenge",
+      "httpStatus": 401,
+      "error": "Unknown, expired or used wallet challenge."
+    },
+    {
+      "step": "Primary rejected signature from wrong wallet",
+      "httpStatus": 401,
+      "error": "Wallet signature does not match the challenge."
+    },
+    {
+      "step": "Primary stopped and refused connections while backup stayed online"
+    },
+    {
+      "step": "Handover from A to B with primary stopped submitted",
+      "hash": "0x9b6ee7afc5998ed7c21fae3c13ac665d406c9da48e9c8dd922d4993a01d8fee8"
+    },
+    {
+      "step": "Handover from A to B with primary stopped confirmed",
+      "hash": "0x9b6ee7afc5998ed7c21fae3c13ac665d406c9da48e9c8dd922d4993a01d8fee8",
+      "blockNumber": "12155007"
+    },
+    {
+      "step": "Backup served new holder B with an identical SHA-256 and identical bytes",
+      "httpStatus": 200,
+      "ownershipBlock": "12155008",
+      "balance": "1",
+      "bytes": 25033364,
+      "sha256": "bdb6c948d4f976b4984c847ac1f353747809cf1ccedde67d58f0f2389e006b5b",
+      "downloaded": "archive-evidence/handover-Lj0gBC/backup-download.zip"
+    },
+    {
+      "step": "Backup denied the former holder A",
+      "httpStatus": 403,
+      "error": "Wallet holds no FDP1 licence.",
+      "block": "12155008",
+      "balance": "0"
+    },
+    {
+      "step": "Handover passed",
+      "walletA": "0",
+      "walletB": "1",
+      "totalSupply": "1"
+    }
+  ],
+  "package": {
+    "fileName": "freedoom-phase1-pilot-win64.zip",
+    "bytes": 25033364,
+    "sha256": "bdb6c948d4f976b4984c847ac1f353747809cf1ccedde67d58f0f2389e006b5b",
+    "platform": "Windows x64",
+    "freedoomVersion": "0.13.0",
+    "crispyDoomVersion": "7.2.0",
+    "sources": [
+      {
+        "file": "freedoom-0.13.0.zip",
+        "url": "https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip",
+        "sha256": "3f9b264f3e3ce503b4fb7f6bdcb1f419d93c7b546f4df3e874dd878db9688f59"
+      },
+      {
+        "file": "crispy-doom-7.2.0-win64.zip",
+        "url": "https://github.com/fabiangreffrath/crispy-doom/releases/download/crispy-doom-7.2/crispy-doom-7.2.0-win64.zip",
+        "sha256": "c04feca63c00fd4c381c53cce8444a2bb520020be38368ce80da60484c94f2ab"
+      },
+      {
+        "file": "crispy-doom-7.2-source.tar.gz",
+        "url": "https://api.github.com/repos/fabiangreffrath/crispy-doom/tarball/crispy-doom-7.2",
+        "sha256": "983c685d727806377a23cad8229266b2c1e29a3ca561c702e709f6906c865bc0"
+      }
+    ]
+  }
+}

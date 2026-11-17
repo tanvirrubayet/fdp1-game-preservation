@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "testedAt": "2026-11-17T14:38:46.398373+00:00",
+  "platform": "Windows x64",
+  "download": "archive-evidence/handover-Lj0gBC/backup-download.zip",
+  "sha256": "bdb6c948d4f976b4984c847ac1f353747809cf1ccedde67d58f0f2389e006b5b",
+  "environment": "Fresh Windows AppContainer using a new installation folder",
+  "appContainer": true,
+  "explicitCapabilitiesGranted": 0,
+  "effectiveCapabilitySids": [
+    "S-1-15-3-2326588459-790204032-1019203565-3688053841-2827051098-3805879908-2051283532"
+  ],
+  "networkCapabilitySids": [],
+  "hostProbeHttpStatus": 204,
+  "sandboxNetworkProbeExit": 28,
+  "gameDemo": "DEMO1",
+  "engineExit": 4294967295,
+  "video": "SDL dummy driver for automated playback",
+  "gameTics": 7117,
+  "realTics": 216,
+  "audio": "disabled for the automated playback"
+}
