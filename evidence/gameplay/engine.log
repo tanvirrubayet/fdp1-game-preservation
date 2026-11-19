@@ -1,0 +1,46 @@
+I_InitSound: SDL audio driver is wasapi
+                           Crispy Doom 7.2.0
+Z_Init: Init zone memory allocation daemon. 
+zone memory: 000001F164814040, 64 MiB allocated for zone
+V_Init: allocate screens.
+M_LoadDefaults: Load system defaults.
+	default file: [temporary test directory]\profile\doom.cfg
+saving config in [temporary test directory]\profile\doom.cfg
+        extra configuration file: [temporary test directory]\profile\crispy.cfg
+W_Init: Init WADfiles.
+ adding [temporary test directory]\freedoom1.wad
+  loaded 0 DEHACKED lumps from PWAD files.
+Save directory changed to [temporary test directory]\profile\.
+===========================================================================
+                           Freedoom: Phase 1
+===========================================================================
+ Crispy Doom is free software, covered by the GNU General Public
+ License.  There is NO warranty; not even for MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. You are welcome to change and distribute
+ copies under certain conditions. See the source for more information.
+===========================================================================
+I_Init: Setting up machine state.
+OPL_Init: Using driver 'SDL'.
+NET_Init: Init network subsystem.
+M_Init: Init miscellaneous info.
+R_Init: Init DOOM refresh daemon - ........................................
+P_Init: Init Playloop state.
+S_Init: Setting up sound.
+I_SDL_PrecacheSounds: Precaching all sound effects........................S_ChangeMusic: D_E1M1 (freedoom1.wad)
+P_SetupLevel: E1M1 (freedoom1.wad) Easy 0:00:00/0:00:00
+P_CheckMapFormat: [E1M1] Doom map format - DoomBSP node format
+P_SetupLevel: E1M1 (freedoom1.wad) Normal 0:00:00/0:00:00
+P_CheckMapFormat: [E1M1] Doom map format - DoomBSP node format
+P_SetupLevel: E1M1 (freedoom1.wad) Normal 0:00:00/0:00:00
+P_CheckMapFormat: [E1M1] Doom map format - DoomBSP node format
+P_SetupLevel: E1M1 (freedoom1.wad) Normal 0:00:00/0:00:00
+P_CheckMapFormat: [E1M1] Doom map format - DoomBSP node format
+P_SetupLevel: E1M1 (freedoom1.wad) Normal 0:00:00/0:00:00
+P_CheckMapFormat: [E1M1] Doom map format - DoomBSP node format
+
+D_CheckNetGame: Checking network game status.
+startskill 1  deathmatch: 0  startmap: 1  startepisode: 1
+player 1 of 1 (1 nodes)
+Emulating the behavior of the 'Ultimate Doom' executable.
+HU_Init: Setting up heads up display.
+ST_Init: Init status bar.

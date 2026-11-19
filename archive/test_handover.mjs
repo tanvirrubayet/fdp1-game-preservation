@@ -159,6 +159,14 @@ async function transfer(from, to, label) {
   return confirmed(hash, label);
 }
 
+async function waitForSafe(client, block) {
+  const deadline = Date.now() + 180_000;
+  while ((await client.getBlock({ blockTag: "safe" })).number < block) {
+    assert.ok(Date.now() < deadline, "RPC safe state did not catch up to the transfer.");
+    await delay(1_500);
+  }
+}
+
 try {
   await Promise.all([checkSepolia(publicClient), checkSepolia(backupClient)]);
   assert.ok(isAddressEqual(await publicClient.readContract({ ...contract, functionName: "owner" }), issuer.address));
@@ -184,6 +192,7 @@ try {
   const setupBlock = initialB === 1n
     ? await transfer(walletB, walletA, "Setup transfer from B to A")
     : await publicClient.getBlockNumber();
+  await waitForSafe(publicClient, setupBlock);
   const primaryProof = await signedProof(primary, walletA.address, walletA);
   const original = await verifyDownload(primary, primaryProof, setupBlock);
   await save("Primary served wallet A", original.details);
@@ -199,11 +208,7 @@ try {
   await save("Primary stopped and refused connections while backup stayed online");
 
   const transferBlock = await transfer(walletA, walletB, "Handover from A to B with primary stopped");
-  const deadline = Date.now() + 35_000;
-  while (await backupClient.getBlockNumber() < transferBlock) {
-    assert.ok(Date.now() < deadline, "Backup RPC did not catch up to the transfer.");
-    await delay(1_500);
-  }
+  await waitForSafe(backupClient, transferBlock);
 
   const newProof = await signedProof(backup, walletB.address, walletB);
   const restored = await verifyDownload(backup, newProof, transferBlock);

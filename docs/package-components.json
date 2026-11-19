@@ -1,0 +1,231 @@
+{
+  "reviewDate": "2026-11-19",
+  "upstreamBinaryArchive": "c04feca63c00fd4c381c53cce8444a2bb520020be38368ce80da60484c94f2ab",
+  "status": "Inventory complete; exact binary-to-source and notice coverage still needs verification",
+  "components": [
+    {
+      "file": "engine/SDL2.dll",
+      "sha256": "933b128eeec721aede9e36fbdb3472c5715c36db8b17d092ad32f2be3f1af7b8",
+      "upstreamPackage": "SDL2",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-SDL2",
+      "licence": "Zlib",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/SDL2_mixer.dll",
+      "sha256": "871e62daf0f44f4a02ead4fca28241e115533f3ff04b08dfade6e8475af63693",
+      "upstreamPackage": "SDL2_mixer",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-SDL2_mixer",
+      "licence": "Check upstream licence",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/SDL2_net.dll",
+      "sha256": "685408cf3205dd3a5997938d9bb97857d8b48afb221b115d05e2ec6864521bf6",
+      "upstreamPackage": "SDL2_net",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-SDL2_net",
+      "licence": "Check upstream licence",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/SDL3.dll",
+      "sha256": "5d021ede45c98a0aa9d42811bcc6a3a6d5500fa25ab0c612fe0cf75ed4d21533",
+      "upstreamPackage": "SDL3",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-SDL3",
+      "licence": "Needs verification",
+      "buildMatch": "Exact bundled version unresolved"
+    },
+    {
+      "file": "engine/libFLAC.dll",
+      "sha256": "2911d4c7356e44fcd24527beb06993bbb699e4f3f459c32ed3fb579d4b91b6ec",
+      "upstreamPackage": "flac",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-flac",
+      "licence": "BSD-3-Clause AND GPL-2.0-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libfluidsynth-3.dll",
+      "sha256": "3463c79bce4ccccc52b301d3ab12a37eeabe7adb2821e55dfbf14fc203bd458c",
+      "upstreamPackage": "fluidsynth",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-fluidsynth",
+      "licence": "LGPL-2.1-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libgcc_s_seh-1.dll",
+      "sha256": "f11959ff0a34e71119d69f7bc52f25c94e2e9325168dd44f758cce2e002db998",
+      "upstreamPackage": "gcc-libs",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-gcc-libs",
+      "licence": "GPL-3.0-or-later WITH GCC-exception-3.1 AND GFDL-1.3-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libgomp-1.dll",
+      "sha256": "4ee684ca971a30b1db8bf1bdb11ec47360e1b2a7ca3554af4fd6a9b8256be44e",
+      "upstreamPackage": "gcc-libs",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-gcc-libs",
+      "licence": "GPL-3.0-or-later WITH GCC-exception-3.1 AND GFDL-1.3-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libiconv-2.dll",
+      "sha256": "5131b719129b29b4c9a485420b76f3ac8e927cd1447967f4c134651696212a4e",
+      "upstreamPackage": "libiconv",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libiconv",
+      "licence": "LGPL-2.1-or-later OR documentation:spdx:GPL-3.0-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libmp3lame-0.dll",
+      "sha256": "d3af6429e604be0451d1caa9eadf933ffc280f1d84deee239b142e413f932640",
+      "upstreamPackage": "lame",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-lame",
+      "licence": "LGPL",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libmpg123-0.dll",
+      "sha256": "89d1f029d38be4070b78caf735af7216a837a97c3cb181c009a94c3334c7907f",
+      "upstreamPackage": "mpg123",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-mpg123",
+      "licence": "LGPL-2.1-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libogg-0.dll",
+      "sha256": "27912efbd55c92fa20eea3f66502043f97e74dc32fa7836c0408afe5a9b6f452",
+      "upstreamPackage": "libogg",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libogg",
+      "licence": "BSD-3-Clause",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libopus-0.dll",
+      "sha256": "106a34fe8d17ec30b59914aefdbee37c95446fe1d468c5b4126e59afe482d19d",
+      "upstreamPackage": "opus",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-opus",
+      "licence": "BSD-3-Clause",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libopusfile-0.dll",
+      "sha256": "23d4a2e83bd8e58ecb355f86d8fe8f2a3c49dd5a9b0a15d3dd426eafb7fd12d6",
+      "upstreamPackage": "opusfile",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-opusfile",
+      "licence": "BSD",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libpng16-16.dll",
+      "sha256": "9b8d6099f6cbe21ef39be80062c2c75905c921f3d221e4b91588ef7ebb14c65d",
+      "upstreamPackage": "libpng",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libpng",
+      "licence": "custom",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libportaudio.dll",
+      "sha256": "4dfab3f64f5f251b11aa64c22560d06d7558614bb5d0c2511fe31d7169ee4a38",
+      "upstreamPackage": "portaudio",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-portaudio",
+      "licence": "custom",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libreadline8.dll",
+      "sha256": "f62a3cf7d2cd41eeba8521a8b86f5c49f62fd77d35b85ba1ed9bfb8176d517f9",
+      "upstreamPackage": "readline",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-readline",
+      "licence": "GPL-3.0-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libsamplerate-0.dll",
+      "sha256": "b853f9ec802475e2ba9fb1f49d2c6b7e33d60c050833ae5b8984b4280ab34068",
+      "upstreamPackage": "libsamplerate",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libsamplerate",
+      "licence": "BSD-2-Clause",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libsndfile-1.dll",
+      "sha256": "d4732b7acb4b00db52394821a617dfa6f6fa1fbaa0e06a538e8a09e47f17c715",
+      "upstreamPackage": "libsndfile",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libsndfile",
+      "licence": "LGPL-2.1-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libstdc++-6.dll",
+      "sha256": "e61cecdb7e64fe59525b84f81ec93f9a226784fab0fc4b0e11caba0ae26ceae5",
+      "upstreamPackage": "gcc-libs",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-gcc-libs",
+      "licence": "GPL-3.0-or-later WITH GCC-exception-3.1 AND GFDL-1.3-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libtermcap-0.dll",
+      "sha256": "7c523aef5172ef976c362d1df8c69af05064f54668dc5a13b27e3bd28e97bb01",
+      "upstreamPackage": "termcap",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-termcap",
+      "licence": "GPL-2.0-or-later",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libvorbis-0.dll",
+      "sha256": "bbab7afbeed422aa84bac69a46ace6a031eb7f0bb1530949ceac079e57c10ad9",
+      "upstreamPackage": "libvorbis",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libvorbis",
+      "licence": "custom",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libvorbisenc-2.dll",
+      "sha256": "6f1d8713b10775a5246ee6384bc3be0814e789a22ac6c823ad492a8921416f71",
+      "upstreamPackage": "libvorbis",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libvorbis",
+      "licence": "custom",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libvorbisfile-3.dll",
+      "sha256": "3b111c0079aa6cc094d7bd938f0f53f1442d7df2a2ba4157bed6760607cd07cb",
+      "upstreamPackage": "libvorbis",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libvorbis",
+      "licence": "custom",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libwavpack-1.dll",
+      "sha256": "19da57929f151beede5f5e591dec8c56020215a78440776cd978488b64dd3e21",
+      "upstreamPackage": "wavpack",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-wavpack",
+      "licence": "BSD-3-Clause",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libwinpthread-1.dll",
+      "sha256": "1dd6c00a83edb9f848886e03ff99cc86fe3f9956692a6d47780e1328b7a2f8e3",
+      "upstreamPackage": "libwinpthread",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libwinpthread",
+      "licence": "MIT AND BSD-3-Clause",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/libxmp.dll",
+      "sha256": "1a52a14b2755bf42481c5f71cce07218d61b7f03edec0b0fad8438420f3bdeb2",
+      "upstreamPackage": "libxmp",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-libxmp",
+      "licence": "MIT",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    },
+    {
+      "file": "engine/zlib1.dll",
+      "sha256": "ae69a6089d94b8cbd13e4271d8a4cf292020831deb41dceb36e6adcbc343127e",
+      "upstreamPackage": "zlib",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-zlib",
+      "licence": "Zlib",
+      "buildMatch": "Unverified exact bundled version; current upstream package metadata"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-19",
+  "packageSha256": "bdb6c948d4f976b4984c847ac1f353747809cf1ccedde67d58f0f2389e006b5b",
+  "packageSource": "Previously recorded Sepolia backup download",
+  "platform": "Windows x64",
+  "engine": "Crispy Doom 7.2.0",
+  "game": "Freedoom Phase 1 0.13.0",
+  "visualCheck": "Interactive level E1M1 observed in the game window",
+  "audioEngineLog": "Sound effects precached and E1M1 music initialised",
+  "userConfirmation": "Sound and save/load both work",
+  "confirmationSource": "User reply in the project chat on 19 November 2026",
+  "scope": "Interactive session used the local package. The earlier AppContainer evidence records the separate no-network timed demo.",
+  "saveFileEvidence": "User-confirmed behaviour; no save file or reload trace archived",
+  "computerUse": "User stopped Computer Use with Escape after confirming the gameplay results"
+}

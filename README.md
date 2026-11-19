@@ -17,8 +17,11 @@ Freedoom Phase 1 and Crispy Doom.
 | [Solidity contract](contracts/PreservationLicence.sol) and [tests](test/PreservationLicence.ts) | Issuance, ERC-20 transfers and local contract tests |
 | [Sepolia deployment snapshot](evidence/sepolia) and [archive test record](archive-evidence/handover-Lj0gBC/TEST-RESULTS.md) | Deployment addresses, transaction journal, archive handover and offline playback logs |
 
-The Word documents preserve the original coursework. Use the links above to
-find the shared copies of the files they reference.
+The Word documents record the 17 November pilot. The [current entitlement and
+recovery policy](docs/ENTITLEMENT-AND-RECOVERY.md) and notebook Sections 12–15
+record the 19 November improvements. See the
+[improvement results](docs/IMPROVEMENTS.md) for executed scenarios and test scope,
+and the [package licence inventory](docs/PACKAGE-LICENCES.md) for component checks.
 
 ## Recorded Sepolia pilot
 
@@ -50,18 +53,20 @@ root in PowerShell. In JupyterLab, run all cells from top to bottom.
 
 ```powershell
 py -3.13 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install jupyterlab pandas matplotlib
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt jupyterlab
 .\.venv\Scripts\python.exe -m jupyterlab preservation_economics.ipynb
 ```
 
 ## Build and test the contract
 
 Use Node.js 24 and [pnpm 11.25.0](https://pnpm.io/installation). Run the
-commands from the repository root. The eight tests use a local chain.
+commands from the repository root. Contract tests use a local chain, including
+an HTTP archive transfer demonstration.
 
 ```powershell
 pnpm install --frozen-lockfile
 pnpm test
+pnpm test:archive
 ```
 
 The contract uses OpenZeppelin's [ERC-20](https://docs.openzeppelin.com/contracts/5.x/api/token/erc20)
@@ -98,3 +103,23 @@ specific test wallets. The maintainer can replay that test with
 and [offline playback record](archive-evidence/handover-Lj0gBC/offline-0k4u2gug/offline.json)
 are available for review. The test used separate processes and package copies
 on one Windows PC.
+
+## Licence updates and operational checks
+
+FDP1 covers the base-game edition and its approved patches and free updates.
+The current holder can request new archive downloads. A transfer of the last
+token ends future download eligibility after the safe blockchain state recognises
+the transfer. Previously downloaded files remain technically playable under
+their applicable licences. Paid DLC would have a separate entitlement.
+
+The server checks safe ownership state and rejects a latest block older than
+two minutes. A delayed provider produces a retryable service error. See the
+[policy](docs/ENTITLEMENT-AND-RECOVERY.md) for refunds, lost signing keys,
+issuer succession and funding intervention.
+
+GitHub Actions executes the contract, archive and financial checks on pushes
+and pull requests. Run the financial check locally with the notebook environment.
+
+\x60\x60\x60powershell
+python scripts/check_notebook.py
+\x60\x60\x60
