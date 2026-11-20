@@ -14,14 +14,14 @@ Freedoom and Crispy Doom recipients retain the rights granted by their software 
 
 Each download requires a fresh wallet proof and a fresh balance check. The archive uses Ethereum's safe block and rejects a provider whose latest block is over two minutes old. Until the safe state includes a transfer, eligibility can reflect the previous holder. Users should wait and request a new challenge. A transfer cannot interrupt a download already authorised or remove files already saved. Safe blocks offer stronger confirmation than latest state and may still be reorganised.
 
-When blockchain checks fail, the archive returns HTTP 503 and asks the player to retry. Saved offline files continue to work. The service uses ordinary Ethereum accounts in this pilot. Smart-wallet recovery requires a separately tested integration.
+When blockchain checks fail, the archive returns HTTP 503 and asks the player to retry. Saved offline files continue to work. The archive now verifies ordinary wallet signatures and ERC-1271 contract-wallet signatures at the safe block. A local ERC-1271 wallet test covers sign-in and download. The archive does not create a wallet or provide a recovery service. A holder whose token is already stranded in a lost ordinary wallet cannot recover it merely because smart-wallet sign-in is supported. Each wallet has one live challenge; repeated requests from one connecting IP are limited. These local controls do not replace public-service rate limiting.
 
 ## Recovery decisions
 
 | Situation | Action and current capability |
 | --- | --- |
 | Lost device with recovery phrase available | Restore the same wallet in trusted wallet software. Both archives recognise that address without another issue. Staff never request the phrase or private key. |
-| Lost phrase but another authorised device still signs | Transfer the entitlement to a new wallet and verify the recipient before retiring the old device. |
+| Lost phrase but another authorised device still signs | Transfer the entitlement to a new wallet and verify the recipient before retiring the old device. A separately chosen recoverable smart wallet may have its own recovery process. |
 | No remaining way to sign | Log a private support case. The deployed token cannot seize, cancel or move the lost balance. A receipt or social account does not enable a replacement issue. The holder can use previously saved files according to their licence. |
 | Discord or Steam identity evidence | Accept only a stable account ID linked and verified before the loss as supporting evidence. Keep it private, with restricted access and a retention policy. It does not grant control over the wallet. |
 | Wrong address issued by mistake | Check the original order and chain receipt. Seek a voluntary return from the recipient. The contract cannot reverse the mint. Keep the case unresolved or refund under the agreed terms if recovery fails. |

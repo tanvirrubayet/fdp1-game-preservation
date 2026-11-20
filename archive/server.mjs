@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { getAddress, isAddress, verifyMessage } from "viem";
+import { getAddress, isAddress } from "viem";
 import { createSiweMessage, generateSiweNonce } from "viem/siwe";
 import { checkSepolia, chainId, connectSepolia, contract, packageName } from "./sepolia.mjs";
 
@@ -17,8 +17,11 @@ export async function createArchiveServer({ role, directory, client, now = Date.
   }
 
   const challenges = new Map();
+  const challengesByAddress = new Map();
+  const challengeRequestsByIp = new Map();
   const challengeLifetimeMs = 120_000;
   const maxChallenges = 128;
+  const maxRequestsPerIp = 20;
   let origin;
 
   function json(response, status, body) {
@@ -26,12 +29,28 @@ export async function createArchiveServer({ role, directory, client, now = Date.
     response.end(JSON.stringify(body));
   }
 
-  function createChallenge(address) {
+  function createChallenge(address, ip) {
     const issuedAt = now();
     for (const [nonce, entry] of challenges) {
-      if (entry.expires <= issuedAt) challenges.delete(nonce);
+      if (entry.expires <= issuedAt) {
+        challenges.delete(nonce);
+        challengesByAddress.delete(entry.address);
+      }
     }
-    if (challenges.size >= maxChallenges) return null;
+    // Count requests, including replacements, so one client cannot monopolise the pool.
+    for (const [clientIp, requests] of challengeRequestsByIp) {
+      const current = requests.filter(time => issuedAt - time < challengeLifetimeMs);
+      if (current.length) challengeRequestsByIp.set(clientIp, current);
+      else challengeRequestsByIp.delete(clientIp);
+    }
+    const requests = challengeRequestsByIp.get(ip) ?? [];
+    if (requests.length >= maxRequestsPerIp) return null;
+    requests.push(issuedAt);
+    challengeRequestsByIp.set(ip, requests);
+
+    const previous = challengesByAddress.get(address);
+    if (previous) challenges.delete(previous);
+    else if (challenges.size >= maxChallenges) return null;
 
     const nonce = generateSiweNonce();
     const expires = issuedAt + challengeLifetimeMs;
@@ -48,6 +67,7 @@ export async function createArchiveServer({ role, directory, client, now = Date.
       version: "1",
     });
     challenges.set(nonce, { address, message, expires });
+    challengesByAddress.set(address, nonce);
     return { nonce, message };
   }
 
@@ -73,18 +93,10 @@ export async function createArchiveServer({ role, directory, client, now = Date.
     const challenge = challenges.get(nonce);
     // Consume the challenge before the asynchronous checks to prevent parallel reuse.
     challenges.delete(nonce);
+    if (challenge) challengesByAddress.delete(challenge.address);
     if (!challenge || challenge.expires <= now() || typeof signature !== "string") {
       return json(response, 401, { error: "Unknown, expired or used wallet challenge." });
     }
-
-    let valid = false;
-    try {
-      // Verify the exact server-issued SIWE message with the pilot's EOA wallet.
-      valid = await verifyMessage({ address: challenge.address, message: challenge.message, signature });
-    } catch {
-      // Malformed signatures are rejected alongside valid signatures from a different wallet.
-    }
-    if (!valid) return json(response, 401, { error: "Wallet signature does not match the challenge." });
 
     // Use safe ownership state and reject a disconnected or stale provider.
     const [latest, safe] = await Promise.all([
@@ -96,6 +108,18 @@ export async function createArchiveServer({ role, directory, client, now = Date.
       return json(response, 503, { error: "Blockchain data is delayed. Please retry shortly." });
     }
     const blockNumber = safe.number;
+    let valid = false;
+    try {
+      // Public-client verification accepts EOAs and ERC-1271/6492 smart wallets.
+      // Check the contract signature at the same safe block used for entitlement.
+      valid = await client.verifySiweMessage({
+        address: challenge.address, message: challenge.message, signature,
+        domain: new URL(origin).host, nonce, blockNumber, time: new Date(now()),
+      });
+    } catch {
+      // Malformed signatures and contract-wallet verification failures are rejected.
+    }
+    if (!valid) return json(response, 401, { error: "Wallet signature does not match the challenge." });
     const balance = await client.readContract({
       ...contract,
       functionName: "balanceOf",
@@ -127,7 +151,8 @@ export async function createArchiveServer({ role, directory, client, now = Date.
     if (request.method === "GET" && url.pathname === "/challenge") {
       const address = url.searchParams.get("address") ?? "";
       if (!isAddress(address)) return json(response, 400, { error: "Invalid wallet address." });
-      const challenge = createChallenge(getAddress(address));
+      // remoteAddress is the TCP peer; never trust a caller-supplied forwarding header.
+      const challenge = createChallenge(getAddress(address), request.socket.remoteAddress ?? "unknown");
       return challenge
         ? json(response, 200, challenge)
         : json(response, 429, { error: "Too many active challenges." });

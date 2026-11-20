@@ -9,7 +9,7 @@
     "test": "hardhat test --build-profile production",
     "deploy:sepolia": "hardhat ignition deploy ignition/modules/PreservationLicence.ts --network sepolia",
     "demo:sepolia": "hardhat ignition deploy ignition/modules/LicenceTransferDemo.ts --network sepolia",
-    "test:archive": "node --test archive/server.test.mjs"
+    "test:archive": "node --test archive/server.test.mjs scripts/rebuild-ownership.test.mjs"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ignition": "3.1.10",

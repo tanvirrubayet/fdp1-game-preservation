@@ -6,12 +6,14 @@ import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { once } from "node:events";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
+import { verifyMessage } from "viem";
 import { createArchiveServer } from "./server.mjs";
 import { packageName } from "./sepolia.mjs";
 
 // These generated wallets are disposable test identities with no network funds.
 const alice = privateKeyToAccount(generatePrivateKey());
 const bob = privateKeyToAccount(generatePrivateKey());
+const smartAddress = "0x0000000000000000000000000000000000001271";
 let directory, server, origin, clock;
 let holder = alice.address, safeNumber = 10n, latestNumber = 11n;
 let unavailable = false, stale = false;
@@ -34,6 +36,11 @@ before(async () => {
     async readContract({ args, blockNumber }) {
       assert.equal(blockNumber, safeNumber);
       return args[0] === holder ? 1n : 0n;
+    },
+    async verifySiweMessage({ address, message, signature, blockNumber }) {
+      assert.equal(blockNumber, safeNumber);
+      if (address === smartAddress) return signature === "0x1271";
+      return verifyMessage({ address, message, signature });
     },
   };
   server = await createArchiveServer({ role: "primary", directory, client, now: () => clock });
@@ -112,4 +119,33 @@ test("eligibility changes at safe state while the previous download remains inta
   assert.equal(current.headers.get("x-ownership-policy"), "safe");
   assert.deepEqual(Buffer.from(await current.arrayBuffer()), saved);
   assert.deepEqual(saved, await readFile(join(directory, packageName)));
+});
+
+test("smart-wallet proof uses the chain-aware verifier at the safe block", async () => {
+  holder = smartAddress;
+  try {
+    const challenge = await fetch(origin + "/challenge?address=" + smartAddress);
+    assert.equal(challenge.status, 200);
+    const { nonce } = await challenge.json();
+    assert.equal((await download({ nonce, signature: "0x1271" })).status, 200);
+  } finally { holder = bob.address; }
+});
+
+test("reissuing a challenge invalidates the old proof and limits one IP's requests", async () => {
+  const oldProof = await proof(bob);
+  const newProof = await proof(bob);
+  assert.equal((await download(oldProof)).status, 401);
+  assert.equal((await download(newProof)).status, 200);
+  let limited = false;
+  for (let i = 0; i < 20; i++) {
+    // Distinct wallet addresses and spoofed forwarding headers share one TCP peer.
+    const address = "0x" + (i + 1).toString(16).padStart(40, "0");
+    const response = await fetch(origin + "/challenge?address=" + address, {
+      headers: { "X-Forwarded-For": "192.0.2." + (i + 1) },
+    });
+    if (response.status === 429) { limited = true; break; }
+  }
+  assert.equal(limited, true);
+  clock += 120_001;
+  assert.equal((await fetch(origin + "/challenge?address=" + bob.address)).status, 200);
 });

@@ -1,0 +1,12 @@
+{
+  "chainId": 11155111,
+  "contract": "0x5DfF8B39c7e37787553425979bE6b9F6b9441ecc",
+  "safeBlock": "12175519",
+  "safeBlockHash": "0x10bf82b80cc8aab5c8fb153fd3d4c09b6cf208433fb192b3cc6a034d3566d106",
+  "totalSupply": "1",
+  "legacyIssued": "0",
+  "paidIssued": "1",
+  "balances": {
+    "0x485f4Cff16cc001df068641FE91c81e6A741a53a": "1"
+  }
+}

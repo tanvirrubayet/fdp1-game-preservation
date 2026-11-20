@@ -18,12 +18,15 @@ Freedoom Phase 1 and Crispy Doom.
 | [Sepolia deployment snapshot](evidence/sepolia) and [archive test record](archive-evidence/handover-Lj0gBC/TEST-RESULTS.md) | Deployment addresses, transaction journal, archive handover and offline playback logs |
 
 The analytical white paper was revised on 20 November and covers all ten Option B
-sections in nine core pages, followed by references, appendices and the AI declaration.
+sections in ten core pages, followed by references, appendices and the AI declaration.
 The other Word documents record the 17 November pilot. The [current entitlement and
 recovery policy](docs/ENTITLEMENT-AND-RECOVERY.md) and notebook Sections 12–15
 record the 19 November improvements. See the
 [improvement results](docs/IMPROVEMENTS.md) for executed scenarios and test scope,
 and the [package licence inventory](docs/PACKAGE-LICENCES.md) for component checks.
+The [second review implementation record](docs/SECOND-REVIEW-IMPLEMENTATION.md) explains
+the newer tax, gas, demand and funded-term examples, archive sign-in changes and
+the decisions that still need a real publisher or operator.
 
 ## Recorded Sepolia pilot
 
@@ -106,6 +109,12 @@ and [offline playback record](archive-evidence/handover-Lj0gBC/offline-0k4u2gug/
 are available for review. The test used separate processes and package copies
 on one Windows PC.
 
+To rebuild a current ownership snapshot from public events and compare it to
+safe-block balances, run `node scripts/rebuild-ownership.mjs`. The
+[recorded snapshot](evidence/sepolia/ownership-snapshot-2026-11-20.json) shows
+the reconciled state on 20 November. The script uses Blockscout's indexed
+history because the pilot's public RPC does not retain the older logs.
+
 ## Licence updates and operational checks
 
 FDP1 covers the base-game edition and its approved patches and free updates.
@@ -114,14 +123,24 @@ token ends future download eligibility after the safe blockchain state recognise
 the transfer. Previously downloaded files remain technically playable under
 their applicable licences. Paid DLC would have a separate entitlement.
 
-The server checks safe ownership state and rejects a latest block older than
-two minutes. A delayed provider produces a retryable service error. See the
+The server verifies ordinary and ERC-1271 wallet signatures at the safe block,
+checks ownership at that same block and rejects a latest block older than two
+minutes. It limits challenge requests per connecting IP address and keeps one
+live challenge per wallet. A delayed provider produces a retryable service error. See the
 [policy](docs/ENTITLEMENT-AND-RECOVERY.md) for refunds, lost signing keys,
 issuer succession and funding intervention.
+
+The [player guide](docs/PLAYER-GUIDE.md) explains downloads, transfers and recovery
+in plain language. This repository records a local prototype, not a public
+checkout or a guaranteed future preservation service.
+
+The project-authored code is available under the [MIT licence](LICENSE). The
+[licensing scope](LICENSING.md) identifies third-party materials that retain
+their own terms.
 
 GitHub Actions executes the contract, archive and financial checks on pushes
 and pull requests. Run the financial check locally with the notebook environment.
 
-\x60\x60\x60powershell
+```powershell
 python scripts/check_notebook.py
-\x60\x60\x60
+```

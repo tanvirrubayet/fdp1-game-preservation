@@ -238,6 +238,7 @@ describe("PreservationLicence", () => {
     // The local test chain mines immediately. Use its latest block as safe in this fixture.
     const client = {
       getBlock: () => publicClient.getBlock(),
+      verifySiweMessage: (args: any) => publicClient.verifySiweMessage(args),
       readContract: (args: any) => publicClient.readContract({ ...args, address: licence.address }),
     };
     const server = await createArchiveServer({ role: "primary", directory, client });
@@ -245,16 +246,17 @@ describe("PreservationLicence", () => {
       server.listen(0, "127.0.0.1");
       await once(server, "listening");
       const origin = "http://127.0.0.1:" + (server.address() as any).port;
-      const download = async (wallet: typeof walletA) => {
-        const r = await fetch(origin + "/challenge?address=" + wallet.account.address);
+      const downloadAs = async (address: string, signer: typeof walletA) => {
+        const r = await fetch(origin + "/challenge?address=" + address);
         assert.equal(r.status, 200);
         const { nonce, message } = await r.json() as any;
-        const signature = await wallet.signMessage({ message });
+        const signature = await signer.signMessage({ message });
         return fetch(origin + "/download", {
           method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ nonce, signature }),
         });
       };
+      const download = (wallet: typeof walletA) => downloadAs(wallet.account.address, wallet);
       await licence.write.issuePaid([walletA.account.address, reference("http-order")]);
       const before = await download(walletA);
       assert.equal(before.status, 200);
@@ -265,6 +267,13 @@ describe("PreservationLicence", () => {
       assert.equal(after.status, 200);
       assert.deepEqual(Buffer.from(await after.arrayBuffer()), saved);
       assert.deepEqual(saved, payload);
+
+      // An actual ERC-1271 wallet holds the second licence and validates its owner's signature.
+      const smartWallet = await viem.deployContract("Mock1271Wallet", [walletA.account.address]);
+      await licence.write.issuePaid([smartWallet.address, reference("smart-wallet-order")]);
+      const smartDownload = await downloadAs(smartWallet.address, walletA);
+      assert.equal(smartDownload.status, 200);
+      assert.deepEqual(Buffer.from(await smartDownload.arrayBuffer()), payload);
     } finally {
       server.closeAllConnections();
       await new Promise<void>(resolve => server.close(() => resolve()));
