@@ -17,7 +17,9 @@ Freedoom Phase 1 and Crispy Doom.
 | [Solidity contract](contracts/PreservationLicence.sol) and [tests](test/PreservationLicence.ts) | Issuance, ERC-20 transfers and local contract tests |
 | [Sepolia deployment snapshot](evidence/sepolia) and [archive test record](archive-evidence/handover-Lj0gBC/TEST-RESULTS.md) | Deployment addresses, transaction journal, archive handover and offline playback logs |
 
-The Word documents record the 17 November pilot. The [current entitlement and
+The analytical white paper was revised on 20 November and covers all ten Option B
+sections in nine core pages, followed by references, appendices and the AI declaration.
+The other Word documents record the 17 November pilot. The [current entitlement and
 recovery policy](docs/ENTITLEMENT-AND-RECOVERY.md) and notebook Sections 12–15
 record the 19 November improvements. See the
 [improvement results](docs/IMPROVEMENTS.md) for executed scenarios and test scope,

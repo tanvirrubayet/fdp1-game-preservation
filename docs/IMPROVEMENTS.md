@@ -1,6 +1,6 @@
 # Improvements after the independent review
 
-Updated 19 November 2026. The current policy covers base-game downloads, hotfixes, compatibility fixes and free updates while holding FDP1. The financial notebook retains the original baseline and adds Sections 12–15 with explicit recovery and continuity costs. The 17 November Word documents remain dated pilot records. Read this update and the [effective policy](ENTITLEMENT-AND-RECOVERY.md) alongside them.
+Updated 19 November 2026. The current policy covers base-game downloads, hotfixes, compatibility fixes and free updates while holding FDP1. The financial notebook retains the original baseline and adds Sections 12–15 with explicit recovery and continuity costs. The workflow and decisions Word documents remain dated pilot records. The analytical white paper was revised on 20 November to incorporate these results and all ten Option B sections. Read this update and the [effective policy](ENTITLEMENT-AND-RECOVERY.md) alongside them.
 
 ## Financial results
 
