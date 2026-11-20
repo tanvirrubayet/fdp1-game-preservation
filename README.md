@@ -10,7 +10,7 @@ Freedoom Phase 1 and Crispy Doom.
 
 | File | What it contains |
 | --- | --- |
-| [Analytical white paper](docs/FDP1%20Analytical%20White%20Paper.docx) | Token design, economics, governance, deployment results and AI-use declaration |
+| [Analytical white paper](docs/FDP1%20Analytical%20White%20Paper%20Concise.docx) | Five-page report covering token design, economics, governance, deployment results and AI-use declaration |
 | [Project record and workflow](docs/FDP1%20Project%20Record%20and%20Workflow.docx) | Steps taken to build, deploy and test the prototype |
 | [Project decisions](docs/Game%20Preservation%20Project%20Decisions.docx) | Early design choices and the reasons for them |
 | [Python economics notebook](preservation_economics.ipynb) | Commented calculations, assumptions, sales scenarios, royalties and reserve simulations with saved outputs |
