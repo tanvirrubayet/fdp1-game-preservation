@@ -14,25 +14,25 @@
     {
       "file": "engine/SDL2_mixer.dll",
       "sha256": "871e62daf0f44f4a02ead4fca28241e115533f3ff04b08dfade6e8475af63693",
-      "upstreamPackage": "SDL2_mixer",
-      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-SDL2_mixer",
-      "licence": "Check upstream licence",
+      "upstreamPackage": "sdl2-mixer",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-sdl2-mixer",
+      "licence": "Zlib",
       "buildMatch": "Unverified exact bundled version; current upstream package metadata"
     },
     {
       "file": "engine/SDL2_net.dll",
       "sha256": "685408cf3205dd3a5997938d9bb97857d8b48afb221b115d05e2ec6864521bf6",
-      "upstreamPackage": "SDL2_net",
-      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-SDL2_net",
-      "licence": "Check upstream licence",
+      "upstreamPackage": "sdl2-net",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-sdl2-net",
+      "licence": "Zlib",
       "buildMatch": "Unverified exact bundled version; current upstream package metadata"
     },
     {
       "file": "engine/SDL3.dll",
       "sha256": "5d021ede45c98a0aa9d42811bcc6a3a6d5500fa25ab0c612fe0cf75ed4d21533",
-      "upstreamPackage": "SDL3",
-      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-SDL3",
-      "licence": "Needs verification",
+      "upstreamPackage": "sdl3",
+      "url": "https://packages.msys2.org/packages/mingw-w64-x86_64-sdl3",
+      "licence": "Zlib",
       "buildMatch": "Exact bundled version unresolved"
     },
     {

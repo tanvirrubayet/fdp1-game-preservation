@@ -1,5 +1,7 @@
 # FDP1 Game Preservation
 
+[![Project checks](https://github.com/tanvirrubayet/fdp1-game-preservation/actions/workflows/checks.yml/badge.svg)](https://github.com/tanvirrubayet/fdp1-game-preservation/actions/workflows/checks.yml)
+
 FDP1 is an Option B coursework prototype for keeping a single-player PC game
 available after a storefront closes. One whole ERC-20 token records the right
 to download the pilot edition. An archive checks a wallet signature and the
@@ -10,16 +12,16 @@ Freedoom Phase 1 and Crispy Doom.
 
 | File | What it contains |
 | --- | --- |
-| [Analytical white paper](docs/FDP1%20Analytical%20White%20Paper%20Concise.docx) | Five-page report covering token design, economics, governance, deployment results and AI-use declaration |
+| [Analytical white paper](docs/FDP1%20Analytical%20White%20Paper.docx) | Full report, revised 20 November: all ten Option B sections in ten core pages, followed by references, appendices and the AI declaration |
+| [Concise white paper](docs/FDP1%20Analytical%20White%20Paper%20Concise.docx) | Five-page version, revised 21 November, covering token design, economics, governance, deployment results and AI-use declaration |
 | [Project record and workflow](docs/FDP1%20Project%20Record%20and%20Workflow.docx) | Steps taken to build, deploy and test the prototype |
 | [Project decisions](docs/Game%20Preservation%20Project%20Decisions.docx) | Early design choices and the reasons for them |
 | [Python economics notebook](preservation_economics.ipynb) | Commented calculations, assumptions, sales scenarios, royalties and reserve simulations with saved outputs |
 | [Solidity contract](contracts/PreservationLicence.sol) and [tests](test/PreservationLicence.ts) | Issuance, ERC-20 transfers and local contract tests |
 | [Sepolia deployment snapshot](evidence/sepolia) and [archive test record](archive-evidence/handover-Lj0gBC/TEST-RESULTS.md) | Deployment addresses, transaction journal, archive handover and offline playback logs |
 
-The analytical white paper was revised on 20 November and covers all ten Option B
-sections in ten core pages, followed by references, appendices and the AI declaration.
-The other Word documents record the 17 November pilot. The [current entitlement and
+The two white papers are the current reports. The other Word documents record the
+17 November pilot. The [current entitlement and
 recovery policy](docs/ENTITLEMENT-AND-RECOVERY.md) and notebook Sections 12–15
 record the 19 November improvements. See the
 [improvement results](docs/IMPROVEMENTS.md) for executed scenarios and test scope,

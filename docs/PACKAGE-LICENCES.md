@@ -1,6 +1,6 @@
 # Pilot package licence inventory
 
-Reviewed 19 November 2026 against the recorded pilot ZIP. This inventory lists every bundled DLL with its SHA-256 in [package-components.json](package-components.json). Package names are inferred from filenames and the upstream MSYS2 build process. Current MSYS2 metadata identifies licence families. Exact binary versions and corresponding source matches remain unresolved.
+Reviewed 19 November 2026 against the recorded pilot ZIP. This inventory lists every bundled DLL with its SHA-256 in [package-components.json](package-components.json). Package names are inferred from filenames and the upstream MSYS2 build process. Current MSYS2 metadata identifies licence families. Exact binary versions and corresponding source matches remain unresolved. The SDL2_mixer, SDL2_net and SDL3 rows were checked against MSYS2 on 21 November 2026; MSYS2 now publishes the first two as `sdl2-mixer` and `sdl2-net`.
 
 | Component | Checked material | Distribution rights and remaining verification |
 | --- | --- | --- |
@@ -15,9 +15,9 @@ The test ZIP preserves the original fingerprint so the earlier evidence can be r
 | Bundled file | Upstream package reference | Current package licence metadata |
 | --- | --- | --- |
 | engine/SDL2.dll | [SDL2](https://packages.msys2.org/packages/mingw-w64-x86_64-SDL2) | Zlib |
-| engine/SDL2_mixer.dll | [SDL2_mixer](https://packages.msys2.org/packages/mingw-w64-x86_64-SDL2_mixer) | Check upstream licence |
-| engine/SDL2_net.dll | [SDL2_net](https://packages.msys2.org/packages/mingw-w64-x86_64-SDL2_net) | Check upstream licence |
-| engine/SDL3.dll | [SDL3](https://packages.msys2.org/packages/mingw-w64-x86_64-SDL3) | Needs verification |
+| engine/SDL2_mixer.dll | [sdl2-mixer](https://packages.msys2.org/packages/mingw-w64-x86_64-sdl2-mixer) | Zlib |
+| engine/SDL2_net.dll | [sdl2-net](https://packages.msys2.org/packages/mingw-w64-x86_64-sdl2-net) | Zlib |
+| engine/SDL3.dll | [sdl3](https://packages.msys2.org/packages/mingw-w64-x86_64-sdl3) | Zlib |
 | engine/libFLAC.dll | [flac](https://packages.msys2.org/packages/mingw-w64-x86_64-flac) | BSD-3-Clause AND GPL-2.0-or-later |
 | engine/libfluidsynth-3.dll | [fluidsynth](https://packages.msys2.org/packages/mingw-w64-x86_64-fluidsynth) | LGPL-2.1-or-later |
 | engine/libgcc_s_seh-1.dll | [gcc-libs](https://packages.msys2.org/packages/mingw-w64-x86_64-gcc-libs) | GPL-3.0-or-later WITH GCC-exception-3.1 AND GFDL-1.3-or-later |
